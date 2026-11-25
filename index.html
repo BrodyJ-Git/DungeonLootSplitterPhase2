@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Brody">
+   <link rel="stylesheet" href="css/style.css">
+  <title>Dungeon Loot Splitter</title>
+</head>
+<body>
+    <header>
+        <h1>Dungeon Loot Splitter</h1>
+    </header>
+
+    <main>
+        <section class="panel">
+            <h2>Party Setup</h2>
+            <label for="party">Number of Party Members:</label>
+            <input type="number" id="party" name="party" min="1" step="1">
+        </section>
+
+        <section class="panel">
+            <h2>Add Loot</h2>
+            <label for="name">Loot Name:</label>
+            <input type="text" id="name" name="name">
+
+            <label for="itemValue">Loot Value:</label>
+            <input type="number" id="itemValue" name="value" min="0" step="0.01">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" step="1">
+
+            <button id="add">Add Loot</button>
+            <p id="warning"></p>
+        </section>
+
+        <section class="panel">
+            <h2>Loot List</h2>
+
+            <div class="loot-table">
+                <div class="loot-header">Name</div>
+                <div class="loot-header">Value</div>
+                <div class="loot-header">Quantity</div>
+                <div class="loot-header">Remove</div>
+
+                <div id="lootRows"></div>
+            </div>
+
+            <div id="noLootMessage">No loot added</div>
+
+            <div class="total-row"><span id="totalLoot">0.00</span>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Split Loot</h2>
+            
+            <button id="split">Split Loot</button>
+            <div class="split-totals">
+                <p id="totalSplit"></p>
+                <p id="lootSplit"></p>
+            </div>
+            
+            <p id="partyWarning"></p>
+        </section>
+
+        <section class="panel reflection">
+            <h2>Logic Explanation</h2>
+            <ul>
+                <li>The loot array serves as the source of truth by being the source for every part of the code. No section of the loot splitter works without accessing the loot array. The loot array also serves as the only source that is updated and also updates the UI.
+                </li>
+                <li>Quantity was added by simply adding another input area and is multiplying with the already available loot value. As to why it was added, I guess it was just to give more freedom when adding items and to reduce clutter when adding multiple of one.
+                </li>
+                <li>updateUI() calculates totals and renders everything directly after a change is made. This is mainly through the methods that add loot and remove loot. However, it's also called when the party size value updates. 
+                </li>
+                <li>State is controlled by the loot array. It determines if loot is split and if totals are shown. The party input state also controls the split section visibility.
+                </li>
+                <li>Conditional logic prevents invalid states by checking each possible outcome with an if else statement. The party section checks if the number is valid and prevents invalid splitting. In combination the split checks if there is loot which also prevents and invalid state. Conditional logic is also used to prevent and invalid inputs from being used as loot.
+                </li>
+            </ul>
+        </section>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>

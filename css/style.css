@@ -1,0 +1,124 @@
+body
+{
+    background-color: rgb(190, 212, 206);
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+header
+{
+    align-items: left;
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-thickness: 15%;
+}
+
+main
+{
+    font-weight: 600;
+}
+
+.panel
+{
+    display: flex;
+    flex-direction: column;
+}
+
+p
+{
+    line-height: 0;
+    margin: 0px 0px 5px 0px;
+}
+
+section
+{
+    gap: 15px 20px;
+    padding: 15px;
+
+    border: 3px solid #3a3a3a;
+    border-radius: 5px;
+    white-space: pre-wrap;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button
+{
+    padding: 6px 9px;
+    border-radius: 0%;
+    font-weight: 800;
+}
+
+input
+{
+    padding: 6px;
+    border-radius: 0px;
+    background-color: aliceblue;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+@media (min-width: 768px)
+{
+    main
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .reflection
+    {
+        grid-column: span 2;
+    }
+}
+
+#lootRows {
+    display: contents;
+}
+
+.loot-table {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.loot-header {
+    font-weight: 600;
+    border-bottom: 2px solid #363636;
+    padding-bottom: 0.25rem;
+}
+
+.loot-row {
+    display: contents;
+    font-weight: 100;
+}
+
+.loot-cell {
+    padding: 0.25rem 0;
+}
+
+.loot-cell button {
+    width: 100%;
+}
+
+.split-totals
+{
+    margin: 35px 0px 0px 0px;
+    line-height: 50%;
+}
+
+#split
+{
+    margin: 0px 76% 0px 0px;
+    padding: 5px 5px;
+    align-items: left;
+
+    display: flex;
+    flex-wrap: wrap;
+}
